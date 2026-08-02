@@ -1,20 +1,25 @@
 ---
-layout: article.njk
-title: "Infrastructures : travaux d'aménagement des pistes rurales"
-category: "À la une"
+title: "Infrastructures : Travaux d'aménagement des pistes rurales à Koumbia"
 date: 2026-08-01
-image: "https://images.unsplash.com/photo-1636783186942-188af7eb0ef5?fm=jpg&q=70&w=1200&auto=format&fit=crop"
-excerpt: "Les équipes s'activent pour désenclaver plusieurs districts avant la saison des pluies."
-badge: "NOUVEAU"
-featured: true
-read: "4 min"
+category: "Infrastructure"
+excerpt: "Les équipes s'activent pour désencaver plusieurs districts avant la saison des pluies."
+layout: "article.njk"
+permalink: "/articles/{{ page.fileSlug }}/index.html"
 ---
-Les équipes techniques de la préfecture de Gaoual se sont mobilisées cette semaine pour l'aménagement des pistes rurales reliant Koumbia aux districts environnants.
 
-## Un chantier prioritaire avant l'hivernage
+Les travaux d'aménagement des pistes rurales à Koumbia sont en cours. Cette initiative vise à améliorer l'accès aux villages éloignés et faciliter le commerce local.
 
-L'objectif est de terminer les travaux les plus urgents avant l'arrivée des grandes pluies, qui rendent habituellement plusieurs axes impraticables pendant des semaines.
+Les nouvelles équipes techniques ont mis en place un calendrier ambitieux pour désencaver plusieurs districts avant le début de la saison des pluies. Cette période critique nécessite une action rapide et coordonnée.
 
-Les habitants des districts concernés se disent soulagés de voir ce chantier avancer, après plusieurs saisons difficiles pour l'écoulement des récoltes vers le marché de Koumbia.
+## Le projet implique
 
-*(Remplacez ce texte par le contenu réel de l'article — vous pouvez tout modifier depuis l'espace de gestion du site.)*
+- Réparation des routes existantes
+- Construction de nouvelles voies d'accès
+- Installation de ponts de fortune
+- Formation des équipes locales
+
+## Les bénéfices attendus
+
+Les bénéfices attendus incluent une meilleure circulation des marchandises, un accès amélioré aux services de santé et une réduction du temps de trajet pour les écoliers. Le gouvernement local a mobilisé les ressources nécessaires pour assurer le succès de ce projet stratégique.
+
+Le budget total est estimé à plusieurs milliards de francs guinéens, avec un échéancier de 18 mois pour la réalisation complète.
