@@ -1,0 +1,162 @@
+---
+layout: base.njk
+title: "Accueil"
+description: "Koumbia Infos - Actualités, santé, économie, agriculture et éducation à Koumbia, Guinée."
+categories: ["Santé", "Économie", "Politique", "Diaspora", "Éducation"]
+---
+{% set featured = collections.articles | selectattr("data.featured") | first %}
+{% if not featured %}{% set featured = collections.articles | first %}{% endif %}
+
+<header id="top" class="hero-photo relative text-white overflow-hidden">
+  <div class="blob blob-float" style="width:460px;height:460px;background:var(--laterite);opacity:.32;top:-140px;left:-140px;"></div>
+  <div class="blob blob-float" style="width:420px;height:420px;background:var(--gold);opacity:.22;bottom:-140px;right:-120px;animation-delay:-6s;"></div>
+  <div class="blob" style="width:280px;height:280px;background:var(--green);opacity:.14;top:35%;left:58%;"></div>
+  <div id="heroContent" class="max-w-5xl mx-auto px-5 pt-20 pb-28 md:pt-28 md:pb-36 text-center relative z-10">
+    <p class="font-display font-700 text-xs md:text-sm tracking-[0.3em] text-gold mb-6">ÉDITION DU {{ "now" | date("dddd D MMMM YYYY") | upper }}</p>
+    <h1 class="font-display font-900 leading-[0.92] mb-7" style="font-size:clamp(3.2rem, 8vw, 6.75rem); letter-spacing:-0.02em;">Koumbia<br class="md:hidden">Infos</h1>
+    <div class="masthead-rule w-40 mx-auto mb-7"></div>
+    <p class="text-xl md:text-2xl text-white/85 mb-4 max-w-2xl mx-auto leading-snug">Le journal qui rassemble Koumbia : ce qui s'y passe, ce qui s'y construit, ce qui s'y décide.</p>
+    <p class="glass-pill inline-flex text-sm text-white/85 mb-12 items-center justify-center gap-1.5 px-4 py-1.5 rounded-full">
+      <svg class="icon" style="width:1rem;height:1rem"><use href="#i-pin"/></svg>
+      Koumbia, Préfecture de Gaoual — Guinée
+    </p>
+    <div class="flex gap-3 justify-center flex-wrap">
+      <a href="https://wa.me/224613767090" class="glass-btn-light press flex items-center gap-2 text-[var(--indigo)] px-7 py-3.5 rounded-full font-semibold hover:brightness-105 transition">
+        <svg class="icon"><use href="#i-whatsapp"/></svg> Nous écrire
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61582910897235" class="glass-btn-outline press flex items-center gap-2 text-white px-7 py-3.5 rounded-full font-semibold hover:bg-white/10 transition">
+        <svg class="icon"><use href="#i-facebook"/></svg> Suivre sur Facebook
+      </a>
+    </div>
+  </div>
+  <div class="hero-ridge" aria-hidden="true"></div>
+</header>
+
+<section id="actualites" class="py-24 md:py-32 relative overflow-hidden">
+  <div class="blob" style="width:380px;height:380px;background:var(--gold);opacity:.16;top:-80px;right:-100px;"></div>
+  <div class="blob" style="width:340px;height:340px;background:var(--green);opacity:.12;bottom:0;left:-120px;"></div>
+  <div class="max-w-7xl mx-auto px-5 relative z-10">
+    <div class="reveal flex items-end justify-between mb-14 flex-wrap gap-4">
+      <div>
+        <p class="font-display font-700 text-xs tracking-[0.2em] text-laterite mb-2">LE JOURNAL</p>
+        <h2 class="font-display font-900 text-4xl md:text-6xl" style="letter-spacing:-0.01em;">Dernières actualités</h2>
+      </div>
+      <p class="text-sm text-ink-soft max-w-xs">Sélectionnées et vérifiées par la rédaction de Koumbia Infos.</p>
+    </div>
+
+    {% if featured %}
+    <div class="reveal">
+      <a href="{{ featured.url }}" class="article-card glass relative block rounded-2xl overflow-hidden grid md:grid-cols-2">
+        {% if featured.data.badge %}<span class="corner-tag">{{ featured.data.badge }}</span>{% endif %}
+        <div class="card-media h-64 md:h-full min-h-[260px] bg-cover bg-center" style="background-image:linear-gradient(0deg, rgba(14,23,41,.15), rgba(14,23,41,0)), url('{{ featured.data.image }}')"></div>
+        <div class="p-8 md:p-12 flex flex-col justify-center">
+          <span class="inline-flex items-center gap-1 text-xs font-display font-800 tracking-wide mb-4" style="color:var(--laterite)">{{ featured.data.category | upper }}</span>
+          <h3 class="font-display font-800 text-3xl md:text-4xl leading-tight mb-4" style="letter-spacing:-0.01em;">{{ featured.data.title }}</h3>
+          <p class="text-ink-soft text-lg mb-7">{{ featured.data.excerpt }}</p>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-ink-soft flex items-center gap-3">
+              <span class="flex items-center gap-1.5"><svg class="icon" style="width:1rem;height:1rem"><use href="#i-calendar"/></svg>{{ featured.data.date | date("D MMMM YYYY") }}</span>
+              <span>· {{ featured.data.read }} de lecture</span>
+            </span>
+            <span class="flex items-center gap-1 font-semibold text-laterite text-sm">Lire la suite <svg class="icon" style="width:1rem;height:1rem"><use href="#i-arrow"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endif %}
+
+    <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+      {% for a in collections.articles %}
+        {% if a.data.title != featured.data.title %}
+        <a href="{{ a.url }}" data-category="{{ a.data.category }}" class="article-card reveal glass block rounded-2xl overflow-hidden">
+          <div class="card-media h-36 bg-cover bg-center" style="background-image:url('{{ a.data.image }}')"></div>
+          <div class="p-6">
+            <span class="text-xs font-display font-800 tracking-wide" style="color:var(--laterite)">{{ a.data.category | upper }}</span>
+            <h3 class="font-display font-800 text-xl leading-snug my-2.5">{{ a.data.title }}</h3>
+            <p class="text-sm text-ink-soft mb-5">{{ a.data.excerpt }}</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-ink-soft flex items-center gap-1.5"><svg class="icon" style="width:.9rem;height:.9rem"><use href="#i-calendar"/></svg>{{ a.data.date | date("D MMM YYYY") }} · {{ a.data.read }}</span>
+              <span class="flex items-center gap-1 font-semibold text-sm text-laterite">Lire <svg class="icon" style="width:.9rem;height:.9rem"><use href="#i-arrow"/></svg></span>
+            </div>
+          </div>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="categories" class="py-24 md:py-32 bg-indigo text-white relative overflow-hidden">
+  <div class="blob blob-float" style="width:340px;height:340px;background:var(--gold);opacity:.22;top:-100px;left:8%;"></div>
+  <div class="blob blob-float" style="width:320px;height:320px;background:var(--laterite);opacity:.24;bottom:-110px;right:6%;animation-delay:-8s;"></div>
+  <div class="max-w-7xl mx-auto px-5 relative z-10">
+    <p class="reveal font-display font-700 text-xs tracking-[0.2em] text-gold mb-2 text-center">EXPLORER</p>
+    <h2 class="reveal font-display font-900 text-4xl md:text-6xl text-center mb-14" style="letter-spacing:-0.01em;">Par catégorie</h2>
+    <div id="categoriesContainer" class="reveal flex flex-wrap justify-center gap-3">
+      <button data-cat="accueil" class="cat-pill glass-pill is-active text-[var(--indigo)] flex items-center gap-2 px-5 py-3 rounded-full font-medium text-sm">
+        <svg class="icon"><use href="#i-home"/></svg> Accueil
+      </button>
+      <button data-cat="Santé" class="cat-pill glass-pill text-white flex items-center gap-2 px-5 py-3 rounded-full font-medium text-sm">
+        <svg class="icon"><use href="#i-health"/></svg> Santé
+      </button>
+      <button data-cat="Économie" class="cat-pill glass-pill text-white flex items-center gap-2 px-5 py-3 rounded-full font-medium text-sm">
+        <svg class="icon"><use href="#i-chart"/></svg> Économie
+      </button>
+      <button data-cat="Politique" class="cat-pill glass-pill text-white flex items-center gap-2 px-5 py-3 rounded-full font-medium text-sm">
+        <svg class="icon"><use href="#i-columns"/></svg> Politique
+      </button>
+      <button data-cat="Diaspora" class="cat-pill glass-pill text-white flex items-center gap-2 px-5 py-3 rounded-full font-medium text-sm">
+        <svg class="icon"><use href="#i-globe"/></svg> Diaspora
+      </button>
+      <button data-cat="Éducation" class="cat-pill glass-pill text-white flex items-center gap-2 px-5 py-3 rounded-full font-medium text-sm">
+        <svg class="icon"><use href="#i-cap"/></svg> Éducation
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-24 md:py-32 relative overflow-hidden">
+  <div class="blob" style="width:320px;height:320px;background:var(--laterite);opacity:.14;top:0;left:-100px;"></div>
+  <div class="blob" style="width:300px;height:300px;background:var(--indigo);opacity:.1;bottom:-70px;right:-90px;"></div>
+  <div class="max-w-7xl mx-auto px-5 relative z-10">
+    <p class="reveal font-display font-700 text-xs tracking-[0.2em] text-laterite mb-2 text-center">URGENCES &amp; CONTACT</p>
+    <h2 class="reveal font-display font-900 text-4xl md:text-6xl text-center mb-16" style="letter-spacing:-0.01em;">Nous contacter</h2>
+    <div class="reveal grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="glass article-card rounded-2xl p-8">
+        <div class="w-14 h-14 rounded-xl bg-[var(--laterite)]/10 flex items-center justify-center mb-5">
+          <svg class="icon icon-lg text-laterite"><use href="#i-health"/></svg>
+        </div>
+        <h3 class="font-display font-800 text-lg mb-1">Centre de Santé</h3>
+        <p class="text-ink-soft text-sm mb-3">Urgences médicales, consultations</p>
+        <a href="tel:+224613767090" class="font-semibold hover:text-laterite transition-colors">+224 613 76 70 90</a>
+      </div>
+      <div class="glass article-card rounded-2xl p-8">
+        <div class="w-14 h-14 rounded-xl bg-[var(--indigo)]/10 flex items-center justify-center mb-5">
+          <svg class="icon icon-lg" style="color:var(--indigo)"><use href="#i-shield"/></svg>
+        </div>
+        <h3 class="font-display font-800 text-lg mb-1">Gendarmerie</h3>
+        <p class="text-ink-soft text-sm mb-3">Sécurité et ordre public</p>
+        <a href="tel:+224613767090" class="font-semibold hover:text-laterite transition-colors">+224 613 76 70 90</a>
+      </div>
+      <div class="glass article-card rounded-2xl p-8">
+        <div class="w-14 h-14 rounded-xl bg-[var(--gold)]/20 flex items-center justify-center mb-5">
+          <svg class="icon icon-lg" style="color:var(--gold)"><use href="#i-mail"/></svg>
+        </div>
+        <h3 class="font-display font-800 text-lg mb-1">Rédaction</h3>
+        <p class="text-ink-soft text-sm mb-3">Proposer une information</p>
+        <a href="mailto:infos@koumbia.sn" class="font-semibold hover:text-laterite transition-colors">infos@koumbia.sn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-28 md:py-36 bg-indigo-dp text-white text-center relative overflow-hidden">
+  <div class="blob blob-float" style="width:400px;height:400px;background:var(--gold);opacity:.16;top:-120px;left:20%;"></div>
+  <div class="reveal max-w-2xl mx-auto px-5 relative z-10">
+    <h2 class="font-display font-900 text-3xl md:text-5xl leading-tight mb-6" style="letter-spacing:-0.01em;">Koumbia mérite d'être raconté.<br>Nous le racontons.</h2>
+    <p class="text-white/60 mb-9">Une info à partager ? Un événement à couvrir ? Écrivez-nous, la rédaction vous lit.</p>
+    <a href="https://wa.me/224613767090" class="glass-btn-light press inline-flex items-center gap-2 text-[var(--indigo)] px-7 py-3.5 rounded-full font-semibold hover:brightness-105 transition">
+      <svg class="icon"><use href="#i-whatsapp"/></svg> Proposer une information
+    </a>
+  </div>
+</section>

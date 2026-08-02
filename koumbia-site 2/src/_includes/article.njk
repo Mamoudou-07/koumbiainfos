@@ -1,0 +1,31 @@
+---
+layout: base.njk
+---
+<article class="relative overflow-hidden">
+  <div class="h-72 md:h-96 bg-cover bg-center relative" style="background-image:linear-gradient(180deg, rgba(14,23,41,.15), rgba(14,23,41,.55)), url('{{ image }}')">
+    <div class="max-w-3xl mx-auto px-5 h-full flex flex-col justify-end pb-10 text-white">
+      <span class="inline-flex w-max items-center gap-1 text-xs font-display font-800 tracking-wide mb-3 glass-pill px-3 py-1 rounded-full">{{ category | upper }}</span>
+      <h1 class="font-display font-900 text-3xl md:text-5xl leading-tight" style="letter-spacing:-0.01em;">{{ title }}</h1>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-5 py-12">
+    <div class="flex items-center gap-4 text-sm text-ink-soft mb-10 pb-6 border-b border-rule">
+      <span class="flex items-center gap-1.5"><svg class="icon" style="width:1rem;height:1rem"><use href="#i-calendar"/></svg>{{ date | date("D MMMM YYYY") }}</span>
+      <span>· {{ read }} de lecture</span>
+    </div>
+
+    <div class="prose-koumbia text-lg leading-relaxed">
+      {{ content | safe }}
+    </div>
+
+    <a href="/#actualites" class="inline-flex items-center gap-2 mt-12 font-semibold text-laterite">
+      <svg class="icon" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg> Retour aux actualités
+    </a>
+  </div>
+</article>
+
+<style>
+  .prose-koumbia p{ margin-bottom:1.25em; color:var(--ink); }
+  .prose-koumbia h2{ font-family:'Archivo',sans-serif; font-weight:800; font-size:1.5rem; margin:1.75em 0 .6em; }
+</style>

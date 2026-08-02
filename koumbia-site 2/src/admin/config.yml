@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Empêche toute personne non invitée d'accéder à l'espace de gestion
+site_url: https://REMPLACER-PAR-VOTRE-DOMAINE
+display_url: https://REMPLACER-PAR-VOTRE-DOMAINE
+logo_url: /admin/logo.png
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    label_singular: "Article"
+    folder: "src/articles"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{category}} — {{title}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - label: "Catégorie"
+        name: "category"
+        widget: "select"
+        options: ["À la une", "Santé", "Économie", "Politique", "Diaspora", "Éducation"]
+      - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Photo de couverture", name: "image", widget: "image" }
+      - { label: "Résumé (affiché sur la carte)", name: "excerpt", widget: "text" }
+      - { label: "Temps de lecture (ex: 3 min)", name: "read", widget: "string", default: "3 min" }
+      - { label: "Badge (optionnel, ex: NOUVEAU)", name: "badge", widget: "string", required: false }
+      - { label: "Mettre à la une", name: "featured", widget: "boolean", default: false }
+      - { label: "Contenu de l'article", name: "body", widget: "markdown" }
