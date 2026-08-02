@@ -1,12 +1,25 @@
 ---
-layout: article.njk
-title: "Campagne de sensibilisation au Centre de Santé"
-category: "Santé"
+title: "Campagne de sensibilisation et de soins au Centre de Santé de Koumbia"
 date: 2026-07-26
-image: "https://images.unsplash.com/photo-1643297654416-05795d62e39c?fm=jpg&q=70&w=1200&auto=format&fit=crop"
-excerpt: "Interventions récentes et matériels reçus pour renforcer la prise en charge."
-read: "3 min"
+category: "Santé"
+excerpt: "Interventions récentes et matériels reçus pour renforcer la prise en charge des patients."
+layout: "article.njk"
+permalink: "/articles/{{ page.fileSlug }}/index.html"
 ---
-Le Centre de Santé de Koumbia a organisé une campagne de sensibilisation à destination des familles, accompagnée de la réception de nouveaux matériels médicaux.
 
-*(Remplacez ce texte par le contenu réel de l'article.)*
+Le Centre de Santé de Koumbia a lancé une grande campagne de sensibilisation et de soins. Cette initiative vise à améliorer l'accès aux services de santé pour tous les habitants.
+
+## Les activités comprises
+
+- Consultations gratuites
+- Vaccinations
+- Dépistage des maladies courantes
+- Formation des agents de santé
+
+Le centre a récemment reçu des matériels médicaux importants qui renforcent considérablement sa capacité à traiter les patients. L'équipe médicale est mobilisée pour offrir les meilleurs soins possibles.
+
+## Résultats et impact
+
+Plus de 500 personnes ont déjà bénéficié de cette campagne en juillet. Les résultats sont très encourageants et le centre envisage de prolonger cette initiative au-delà de la période prévue.
+
+Les femmes enceintes et les enfants de moins de 5 ans ont reçu une attention particulière pendant cette campagne, avec des consultations et des suivis réguliers mis en place.
